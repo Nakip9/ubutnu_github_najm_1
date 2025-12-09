@@ -7,7 +7,7 @@ export default defineConfig({
   // Base path for GitHub Pages (uncomment and set your repository name)
   // base: '/your-repo-name/',
   // For root domain deployment, leave base as '/' or comment it out
-  base: '/',
+  base: '/ubutnu_github_najm_1/',
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
@@ -28,3 +28,4 @@ export default defineConfig({
     open: true,
   },
 })
+
