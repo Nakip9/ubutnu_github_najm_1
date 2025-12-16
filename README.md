@@ -1,255 +1,174 @@
-# Alnajm Alazrak Travel & Tourism
+# Alnajm Alazrak Travel & Tourism - Passport Status Check System
 
-A modern, responsive website for a comprehensive travel and tourism agency.
+A modern travel agency website with integrated passport/visa status checking system.
 
-## 🚀 Features
+## Features
 
-- Modern, responsive design
-- Attractive and user-friendly interface
-- Multiple pages: Home, About, Services, Destinations, Contact
-- Smooth animations using Framer Motion
-- Optimized for performance and speed
-- SEO-friendly structure
-- PWA-ready with service worker
+✅ **Public Passport Check**
+- Users can check visa status by entering passport number
+- Real-time status display (Ready, Processing, Pending, Rejected)
+- Beautiful, responsive UI with Arabic content
+- Input validation and error handling
 
-## 📦 Installation
+✅ **Admin Panel**
+- Accessible at `/admin` route
+- Add, edit, delete passport entries
+- Search and filter functionality
+- Status management
+
+✅ **Backend API**
+- Vercel serverless API routes
+- Secure Supabase database integration
+- Input validation and sanitization
+- CORS handling
+
+## Tech Stack
+
+- **Frontend**: React 19 + Vite
+- **Backend**: Vercel API Routes (Serverless Functions)
+- **Database**: Supabase (PostgreSQL)
+- **Deployment**: Vercel
+- **Styling**: CSS with CSS Variables
+
+## Quick Start
+
+### Prerequisites
+
+- Node.js 18+
+- Git
+- Vercel account
+- Supabase account
+
+### Installation
 
 ```bash
 # Install dependencies
 npm install
 
-# Run the project in development mode
+# Run development server
 npm run dev
 
-# Build the project for production
+# Build for production
 npm run build
 
-# Preview the production build
+# Preview production build
 npm run preview
 ```
 
-## 🌐 Deployment to GitHub Pages
+## Deployment
 
-This project is configured for free deployment on GitHub Pages. Follow the instructions below to deploy your site.
+### Deploy to Vercel
 
-### Prerequisites
-
-- A GitHub account
-- Git installed on your computer
-- Node.js 18+ installed
-
-### Step-by-Step Deployment Instructions
-
-#### 1. Prepare Your Repository
-
-1. **Create a new repository on GitHub** (or use an existing one)
-   - Go to [GitHub](https://github.com) and click "New repository"
-   - Name it (e.g., `alnajm-travel-website`)
-   - Make it public (required for free GitHub Pages)
-   - Don't initialize with README (we already have one)
-
-2. **Push your code to GitHub**
+1. **Push to GitHub**
    ```bash
-   # Initialize git if not already done
    git init
-   
-   # Add all files
    git add .
-   
-   # Commit
-   git commit -m "Initial commit - Ready for deployment"
-   
-   # Add your GitHub repository as remote
-   git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
-   
-   # Push to GitHub
-   git branch -M main
+   git commit -m "Initial commit"
+   git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO.git
    git push -u origin main
    ```
 
-#### 2. Configure GitHub Pages
+2. **Connect to Vercel**
+   - Go to [vercel.com](https://vercel.com)
+   - Import your GitHub repository
+   - Vercel will auto-detect settings
 
-1. **Enable GitHub Pages**
-   - Go to your repository on GitHub
-   - Click on **Settings** tab
-   - Scroll down to **Pages** section (in the left sidebar)
-   - Under **Source**, select **GitHub Actions**
-   - Save the changes
+3. **Add Environment Variables**
+   - `SUPABASE_URL`: Your Supabase project URL
+   - `SUPABASE_SERVICE_KEY`: Your Supabase service role key
 
-2. **The deployment will start automatically**
-   - GitHub Actions workflow is already configured in `.github/workflows/deploy.yml`
-   - The workflow will build and deploy your site automatically
-   - You can monitor the deployment in the **Actions** tab
+4. **Set Up Database**
+   - Create `visa_status` table in Supabase
+   - See `SUPABASE_SETUP.md` for details
 
-#### 3. Access Your Deployed Site
+**For detailed instructions, see:** `VERCEL_DEPLOYMENT_GUIDE.md`
 
-- After deployment completes (usually 2-5 minutes), your site will be available at:
-  - `https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/`
-- If your repository name is the same as your username, it will be:
-  - `https://YOUR_USERNAME.github.io/`
+## Documentation
 
-#### 4. Custom Domain (Optional)
+- **`VERCEL_DEPLOYMENT_GUIDE.md`** - Complete deployment guide with detailed steps
+- **`VERCEL_QUICK_START.md`** - Quick reference for experienced users
+- **`API_REFERENCE.md`** - Complete API documentation
+- **`TROUBLESHOOTING.md`** - Common issues and solutions
+- **`SUPABASE_SETUP.md`** - Database setup instructions
 
-If you have a custom domain:
-
-1. **Update `vite.config.js`**
-   - If deploying to a subdirectory (e.g., `/your-repo-name/`), uncomment and set the `base` option:
-     ```js
-     base: '/your-repo-name/',
-     ```
-   - For root domain deployment, keep `base: '/'` or comment it out
-
-2. **Add CNAME file** (for custom domain)
-   - Create a file named `CNAME` in the `public` folder
-   - Add your domain name (e.g., `www.yourdomain.com`)
-   - Push to GitHub
-
-3. **Configure DNS**
-   - Add a CNAME record pointing to `YOUR_USERNAME.github.io`
-   - Wait for DNS propagation (can take up to 48 hours)
-
-### Important Notes for GitHub Pages
-
-1. **Base Path Configuration**
-   - If your site is at `username.github.io/repo-name`, update `vite.config.js`:
-     ```js
-     base: '/repo-name/',
-     ```
-   - If your site is at `username.github.io` (repository name matches username), keep:
-     ```js
-     base: '/',
-     ```
-
-2. **Branch Name**
-   - The workflow is configured for `main` branch
-   - If your default branch is `master`, update `.github/workflows/deploy.yml`:
-     ```yaml
-     branches:
-       - master  # Change from 'main' to 'master'
-     ```
-
-3. **Build Time**
-   - First deployment may take 5-10 minutes
-   - Subsequent deployments are usually faster (2-5 minutes)
-
-## 🔧 Troubleshooting
-
-### Issue: Logo Not Showing (Old Logo Appears)
-
-**Solution:**
-1. Clear browser cache:
-   - Chrome/Edge: `Ctrl+Shift+Delete` (Windows) or `Cmd+Shift+Delete` (Mac)
-   - Select "Cached images and files"
-   - Clear cache
-
-2. Hard refresh:
-   - Windows: `Ctrl+F5` or `Ctrl+Shift+R`
-   - Mac: `Cmd+Shift+R`
-
-3. Clear service worker cache:
-   - Open DevTools (F12)
-   - Go to Application tab
-   - Click "Clear storage"
-   - Check "Cache storage" and "Service Workers"
-   - Click "Clear site data"
-
-4. Rebuild the project:
-   ```bash
-   npm run build
-   ```
-
-### Issue: 404 Errors on Routes
-
-**Solution:**
-- The `404.html` file is included for GitHub Pages SPA routing
-- Ensure it's in the root directory
-- The `_redirects` file in `public/` folder handles routing for Netlify
-
-### Issue: Assets Not Loading
-
-**Solution:**
-- Check the `base` path in `vite.config.js` matches your deployment path
-- Ensure all assets are in the `public/` folder
-- Verify file paths use absolute paths (starting with `/`)
-
-### Issue: Build Fails
-
-**Solution:**
-1. Check Node.js version (should be 18+):
-   ```bash
-   node --version
-   ```
-
-2. Clear node_modules and reinstall:
-   ```bash
-   rm -rf node_modules package-lock.json
-   npm install
-   ```
-
-3. Check for errors in the build output
-
-## 📁 Project Structure
+## Project Structure
 
 ```
-alnajm_2_v_logo_apply/
-├── public/          # Static files (images, logos, etc.)
-├── src/
-│   ├── components/  # Reusable components
-│   ├── pages/       # Page components
-│   ├── constants/   # Constants and data
-│   └── data/        # Site data
-├── .github/
-│   └── workflows/
-│       └── deploy.yml  # GitHub Actions deployment workflow
-├── vite.config.js   # Vite configuration
-├── 404.html         # GitHub Pages SPA routing
-└── package.json     # Dependencies
+project/
+├── api/                          # Vercel API routes
+│   ├── check-visa-status.js      # Public API
+│   └── admin/                    # Admin APIs
+│       ├── create-entry.js
+│       ├── update-status.js
+│       ├── list-entries.js
+│       └── delete-entry.js
+├── src/                          # React source code
+│   ├── components/
+│   │   ├── sections/
+│   │   │   └── PassportCheck/   # Public check component (Arabic UI)
+│   │   └── admin/                # Admin components
+│   └── pages/
+│       └── Admin.jsx             # Admin page
+├── public/                       # Static files
+├── vercel.json                   # Vercel configuration
+└── package.json
 ```
 
-## 🛠️ Technologies Used
+## API Endpoints
 
-- **React 19** - JavaScript library for building user interfaces
-- **Vite** - Fast build tool
-- **React Router** - Routing in React
-- **Framer Motion** - Animation library
-- **React Icons** - Icon library
+### Public
+- `GET /api/check-visa-status?passport_number=XXX` - Check passport status
 
-## 🔒 Security
+### Admin
+- `POST /api/admin/create-entry` - Create new entry
+- `PUT /api/admin/update-status` - Update entry
+- `GET /api/admin/list-entries` - List all entries
+- `DELETE /api/admin/delete-entry` - Delete entry
 
-- Security headers configured
-- No known vulnerabilities
-- Code optimized and minified for production
+See `API_REFERENCE.md` for complete API documentation.
 
-## 📝 Notes
+## Environment Variables
 
-- The `_redirects` file in `public/` folder is required for SPA routing on Netlify
-- The `404.html` file handles SPA routing on GitHub Pages
-- All images should be in the `public/` folder
-- Logo file: `public/logo_svg.svg` (transparent SVG)
+Required environment variables (set in Vercel):
 
-## 🚀 Quick Deployment Checklist
+- `SUPABASE_URL` - Supabase project URL
+- `SUPABASE_SERVICE_KEY` - Supabase service role key
 
-- [ ] Code pushed to GitHub repository
-- [ ] GitHub Pages enabled (GitHub Actions)
-- [ ] Base path configured in `vite.config.js` (if needed)
-- [ ] Build tested locally (`npm run build`)
-- [ ] All assets loading correctly
-- [ ] Routes working properly
-- [ ] Logo displaying correctly
-- [ ] Custom domain configured (if applicable)
+## Database Schema
 
-## 📄 License
+**Table: `visa_status`**
 
-All rights reserved © 2025 Alnajm Alazrak Travel & Tourism
+| Column | Type | Description |
+|--------|------|-------------|
+| id | uuid | Primary key |
+| passport_number | text | Unique passport number |
+| status | text | Status: pending, processing, ready, rejected |
+| created_at | timestamp | Creation timestamp |
+| updated_at | timestamp | Last update timestamp |
+| admin_notes | text | Optional admin notes |
 
-## 🆘 Support
+## Development
 
-For deployment issues:
-1. Check the GitHub Actions logs in the **Actions** tab
-2. Verify all configuration files are correct
-3. Ensure Node.js version is 18+
-4. Clear browser cache if seeing old content
+```bash
+# Start dev server
+npm run dev
 
----
+# Build
+npm run build
 
-**Ready to deploy?** Follow the "Step-by-Step Deployment Instructions" above!
+# Preview build
+npm run preview
+
+# Lint
+npm run lint
+```
+
+## License
+
+Private project - Alnajm Alazrak Travel & Tourism
+
+## Support
+
+For deployment help, see:
+- `VERCEL_DEPLOYMENT_GUIDE.md` - Step-by-step deployment
+- `TROUBLESHOOTING.md` - Common issues and solutions

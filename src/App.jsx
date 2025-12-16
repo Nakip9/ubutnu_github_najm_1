@@ -8,6 +8,7 @@ import About from './pages/About';
 import Services from './pages/Services';
 import Destinations from './pages/Destinations';
 import Contact from './pages/Contact';
+import Admin from './pages/Admin';
 import './App.css';
 
 function App() {
@@ -42,7 +43,7 @@ function App() {
               <Route path="/services" element={<Services />} />
               <Route path="/destinations" element={<Destinations />} />
               <Route path="/contact" element={<Contact />} />
-
+              <Route path="/admin" element={<Admin />} />
             </Routes>
           </main>
 

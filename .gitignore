@@ -38,6 +38,11 @@ lerna-debug.log*
 # Vite
 .vite/
 
-# Netlify
-.netlify/
+# Vercel
+.vercel/
+
+# Environment variables (never commit these!)
+.env
+.env.local
+.env.*.local
 
