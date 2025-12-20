@@ -11,7 +11,7 @@
     min-height: 90vh;
     display: flex;
     align-items: center;
-    background: #ffffff;
+    background: var(--bg-primary);
 }
 
 .hero-background {
@@ -19,8 +19,8 @@
     inset: 0;
     background: linear-gradient(
         135deg,
-        rgba(8, 145, 178, 0.03) 0%,
-        rgba(8, 145, 178, 0.01) 100%
+        rgba(0, 75, 135, 0.06) 0%,
+        rgba(13, 148, 136, 0.04) 100%
     );
 }
 
@@ -28,11 +28,11 @@
     position: absolute;
     inset: 0;
     background-image: 
-        linear-gradient(rgba(8, 145, 178, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(8, 145, 178, 0.05) 1px, transparent 1px);
+        linear-gradient(rgba(0, 75, 135, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 75, 135, 0.06) 1px, transparent 1px);
     background-size: 40px 40px;
     mask-image: radial-gradient(circle at 50% 50%, black 30%, transparent 70%);
-    opacity: 0.5;
+    opacity: 0.45;
 }
 
 .hero-content-wrapper {
@@ -126,8 +126,8 @@
 }
 
 .title-highlight {
-    color: var(--primary-cyan);
-    font-weight: 600;
+    color: var(--primary-blue);
+    font-weight: 700;
     display: inline;
     margin-right: 0.25rem;
 }
@@ -159,8 +159,8 @@
     gap: 2rem;
     margin-bottom: 3rem;
     padding: 1rem 0;
-    border-top: 1px solid rgba(0, 0, 0, 0.08);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    border-top: 1px solid rgba(0, 75, 135, 0.08);
+    border-bottom: 1px solid rgba(0, 75, 135, 0.08);
 }
 
 .stat {
@@ -171,8 +171,8 @@
 .stat-number {
     display: block;
     font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--primary-cyan);
+    font-weight: 800;
+    color: var(--primary-blue);
     margin-bottom: 0.25rem;
     line-height: 1;
 }
@@ -196,21 +196,22 @@
     align-items: center;
     gap: 0.5rem;
     padding: 0.9rem 2rem;
-    background: var(--primary-cyan);
+    background: var(--primary-blue);
     color: white;
     border: none;
-    border-radius: 8px;
+    border-radius: 12px;
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: 700;
     cursor: pointer;
     transition: all 0.3s ease;
     text-decoration: none;
+    box-shadow: var(--shadow-lg);
 }
 
 .btn-primary:hover {
-    background: #0891b2;
-    transform: translateY(-1px);
-    box-shadow: 0 5px 15px rgba(8, 145, 178, 0.2);
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-glow);
 }
 
 .btn-text {
@@ -227,7 +228,7 @@
 }
 
 .btn-text:hover {
-    color: var(--primary-cyan);
+    color: var(--primary-blue);
 }
 
 .arrow {
@@ -244,13 +245,11 @@
 }
 
 .visual-frame {
-    background: white;
+    background: var(--bg-primary);
     border-radius: 20px;
     padding: 2rem;
-    box-shadow: 
-        0 20px 40px rgba(0, 0, 0, 0.05),
-        0 1px 0 rgba(0, 0, 0, 0.05);
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(0, 75, 135, 0.06);
 }
 
 .frame-content {
@@ -265,20 +264,20 @@
     align-items: center;
     gap: 0.75rem;
     padding: 1.5rem;
-    background: rgba(8, 145, 178, 0.03);
+    background: rgba(0, 75, 135, 0.03);
     border-radius: 12px;
-    border: 1px solid rgba(8, 145, 178, 0.1);
+    border: 1px solid rgba(0, 75, 135, 0.12);
     transition: all 0.3s ease;
 }
 
 .frame-item:hover {
-    border-color: var(--primary-cyan);
+    border-color: var(--primary-blue);
     transform: translateY(-2px);
 }
 
 .frame-item svg {
     font-size: 1.8rem;
-    color: var(--primary-cyan);
+    color: var(--primary-blue);
 }
 
 .frame-item span {
@@ -290,9 +289,9 @@
 /* Navigation Tabs */
 .section-nav {
     padding: 1.5rem 0;
-    background: rgba(8, 145, 178, 0.02);
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    background: var(--bg-secondary);
+    border-top: 1px solid rgba(0, 75, 135, 0.06);
+    border-bottom: 1px solid rgba(0, 75, 135, 0.06);
 }
 
 .nav-tabs {
@@ -323,14 +322,14 @@
 }
 
 .nav-tab:hover {
-    background: rgba(8, 145, 178, 0.05);
+    background: rgba(0, 75, 135, 0.06);
     color: var(--text-primary);
 }
 
 .nav-tab.active {
-    background: rgba(8, 145, 178, 0.1);
-    color: var(--primary-cyan);
-    font-weight: 600;
+    background: rgba(0, 75, 135, 0.12);
+    color: var(--primary-blue);
+    font-weight: 700;
 }
 
 .tab-number {
@@ -385,16 +384,16 @@
     gap: 1.5rem;
     align-items: flex-start;
     padding: 1.5rem;
-    background: rgba(8, 145, 178, 0.03);
+    background: rgba(0, 75, 135, 0.03);
     border-radius: 12px;
-    border-left: 3px solid var(--primary-cyan);
+    border-left: 3px solid var(--primary-blue);
 }
 
 .point-number {
     font-size: 0.9rem;
-    color: var(--primary-cyan);
-    font-weight: 700;
-    opacity: 0.7;
+    color: var(--primary-blue);
+    font-weight: 800;
+    opacity: 0.75;
 }
 
 .point-content h3 {
@@ -421,20 +420,20 @@
 .value {
     text-align: center;
     padding: 1.5rem;
-    background: rgba(8, 145, 178, 0.03);
+    background: rgba(0, 75, 135, 0.03);
     border-radius: 12px;
-    border: 1px solid rgba(8, 145, 178, 0.1);
+    border: 1px solid rgba(0, 75, 135, 0.12);
     transition: all 0.3s ease;
 }
 
 .value:hover {
-    border-color: var(--primary-cyan);
+    border-color: var(--primary-blue);
     transform: translateY(-2px);
 }
 
 .value-icon {
     font-size: 1.8rem;
-    color: var(--primary-cyan);
+    color: var(--primary-blue);
     margin-bottom: 1rem;
 }
 
@@ -462,15 +461,15 @@
     text-align: center;
     flex: 1;
     padding: 1.5rem;
-    background: rgba(8, 145, 178, 0.03);
+    background: rgba(0, 75, 135, 0.03);
     border-radius: 12px;
 }
 
 .team-number {
     display: block;
     font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--primary-cyan);
+    font-weight: 800;
+    color: var(--primary-blue);
     margin-bottom: 0.5rem;
 }
 
@@ -483,8 +482,8 @@
 /* Minimal CTA */
 .minimal-cta {
     padding: 4rem 0;
-    background: rgba(8, 145, 178, 0.03);
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    background: var(--bg-secondary);
+    border-top: 1px solid rgba(0, 75, 135, 0.06);
 }
 
 .cta-content {

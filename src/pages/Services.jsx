@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ExpandableServiceCard from '../components/common/ExpandableServiceCard';
 import { allServices } from '../data/services';
@@ -16,26 +16,31 @@ const Services = () => {
     const heroRef = useRef(null);
 
     useEffect(() => {
-        const handleScroll = () => {
-            setIsScrolled(window.scrollY > 100);
+        let ticking = false;
+        const onScroll = () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    setIsScrolled(window.scrollY > 100);
+                    ticking = false;
+                });
+                ticking = true;
+            }
         };
-        window.addEventListener('scroll', handleScroll);
-        
+        window.addEventListener('scroll', onScroll, { passive: true });
+
         // Animate text on load
-        const timer = setTimeout(() => {
-            setIsTextVisible(true);
-        }, 300);
-        
+        const timer = setTimeout(() => setIsTextVisible(true), 300);
+
         return () => {
-            window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener('scroll', onScroll);
             clearTimeout(timer);
         };
     }, []);
 
     // Use all services from data file with safety check
-    const services = Array.isArray(allServices) ? allServices : [];
+    const services = useMemo(() => (Array.isArray(allServices) ? allServices : []), []);
 
-    const filters = [
+    const filters = useMemo(() => ([
         { id: 'all', label: 'الكل', icon: <FiAward /> },
         { id: 'flights', label: 'طيران', icon: <TbPlane /> },
         { id: 'hotels', label: 'فنادق', icon: <TbBuilding /> },
@@ -49,17 +54,19 @@ const Services = () => {
         { id: 'medical', label: 'علاجية', icon: <FiMap /> },
         { id: 'events', label: 'معارض', icon: <FiAward /> },
         { id: 'domestic', label: 'داخلية', icon: <TbMap /> }
-    ];
+    ]), []);
 
     const handleCardToggle = (title) => {
         setExpandedCardTitle(expandedCardTitle === title ? null : title);
     };
 
-    const filteredServices = activeFilter === 'all'
-        ? services
-        : services.filter(service => service && service.category === activeFilter);
+    const filteredServices = useMemo(() => (
+        activeFilter === 'all'
+            ? services
+            : services.filter(service => service && service.category === activeFilter)
+    ), [activeFilter, services]);
 
-    const features = [
+    const features = useMemo(() => ([
         {
             icon: <FiAward />,
             title: "خبرة واسعة",
@@ -80,9 +87,9 @@ const Services = () => {
             title: "أفضل الأسعار",
             desc: "ضمان أفضل قيمة مقابل المال"
         }
-    ];
+    ]), []);
 
-    const heroWords = ["طيران", "فنادق", "سياحة", "ترجمة", "حج", "عمرة", "تأشيرات", "مواصلات"];
+    const heroWords = useMemo(() => ["طيران", "فنادق", "سياحة", "ترجمة", "حج", "عمرة", "تأشيرات", "مواصلات"], []);
 
     return (
         <div className="services-page">
