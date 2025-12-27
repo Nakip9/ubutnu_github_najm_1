@@ -12,7 +12,7 @@ const Footer = () => {
         { icon: <FiLinkedin />, href: SOCIAL_LINKS.linkedin, label: 'لينكد إن', color: '#0077B5' }
     ];
 
-    return (
+    return (    
         <footer className="footer">
             <div className="container">
                 <div className="footer-grid">

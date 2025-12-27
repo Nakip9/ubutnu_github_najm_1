@@ -511,9 +511,7 @@
 
 /* Desktop-Specific Enhancements */
 @media (min-width: 1200px) {
-    .contact-page {
-        padding-top: 100px;
-    }
+
 
     .contact-hero {
         min-height: 80vh;
